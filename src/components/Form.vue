@@ -6,10 +6,11 @@
     <br />
     <div v-for="(a, i) in quant" :key="i">
       <label> Titulo: </label>
-      <input v-model="ola" @change="addTitulo(i, this.value)" />
+      <input v-model="ola[i]" @change="addTitulo(i, this.ola[i])" />
       <br />
       <label> Conteúdo: </label>
-      <textarea @change="addConteudo(i, this.value)"> </textarea>
+      <textarea v-model="alo[i]" @change="addConteudo(i, this.alo[i])">
+      </textarea>
     </div>
     <button @click="submeter()">Submeter</button>
   </div>
@@ -27,6 +28,8 @@ export default {
   },
   data() {
     return {
+      ola: [],
+      alo: [],
       count: 0,
       quant: [],
       coisa1: [],
@@ -43,8 +46,7 @@ export default {
       this.count++;
     },
     addTitulo(j, comp) {
-      this.teste = 1;
-      this.titulos[j] = "ai" + comp;
+      this.titulos[j] = comp;
     },
     addConteudo(j, comp) {
       this.conteudos[j] = comp;
@@ -52,7 +54,7 @@ export default {
 
     submeter() {
       this.nivel = 1;
-      this.coisa1 = ["a", "b"];
+      this.coisa1 = this.titulos;
       this.coisa2 = this.conteudos;
     },
   },
