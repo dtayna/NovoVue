@@ -6,7 +6,7 @@
     <br />
     <div v-for="(a, i) in quant" :key="i">
       <label> Titulo: </label>
-      <input @change="addTitulo(i)" />
+      <input v-model="ola" @change="addTitulo(i, this.value)" />
       <br />
       <label> Conteúdo: </label>
       <textarea @change="addConteudo(i, this.value)"> </textarea>
@@ -42,16 +42,17 @@ export default {
       this.quant[this.count] = this.count;
       this.count++;
     },
-    addConteudo(j, comp) {
-      this.conteudos[j] = comp.value;
-    },
     addTitulo(j, comp) {
       this.teste = 1;
       this.titulos[j] = "ai" + comp;
     },
+    addConteudo(j, comp) {
+      this.conteudos[j] = comp;
+    },
+
     submeter() {
       this.nivel = 1;
-      this.coisa1 = this.titulo;
+      this.coisa1 = ["a", "b"];
       this.coisa2 = this.conteudos;
     },
   },
