@@ -4,17 +4,26 @@
     <button @click="increment()">{{ count }}</button>
     <br />
     <br />
+    <hr />
     <div v-for="(a, i) in quant" :key="i">
       <label> Titulo: </label>
-      <input v-model="ola[i]" @change="addTitulo(i, this.ola[i])" />
+      <input
+        class="texto"
+        v-model="ola[i]"
+        @change="addTitulo(i, this.ola[i])"
+      />
       <br />
       <label> Conteúdo: </label>
-      <textarea v-model="alo[i]" @change="addConteudo(i, this.alo[i])">
+      <textarea
+        class="textoConteudo"
+        v-model="alo[i]"
+        @change="addConteudo(i, this.alo[i])"
+      >
       </textarea>
     </div>
-    <button @click="submeter()">Submeter</button>
+    <button class="botao" @click="submeter()">Submeter</button>
   </div>
-  <div v-if="nivel === 1">
+  <div class="tabs" v-if="nivel === 1">
     <Tab :topos="coisa1" :corpos="coisa2" />
   </div>
 </template>
@@ -62,4 +71,47 @@ export default {
 </script>
 
 <style scoped>
+.tabs {
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+  background-color: #4CAF50;
+  width: 100%;
+  height: 300px;
+}
+.textoConteudo {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.botao {
+  width: 50%;
+  margin: 25%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin-left: 25%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.texto {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.principal {
+  width: 50%;
+}
 </style>

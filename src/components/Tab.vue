@@ -5,7 +5,7 @@
     </div>
     <br />
     <div class="corpo">
-      <p>{{ corpos[tabS] }}</p>
+      <p style="text-align: left">{{ corpos[tabS] }}</p>
     </div>
   </div>
 </template>
@@ -42,6 +42,12 @@ export default {
 }
 
 .corpo {
-  width: 100px;
+  padding-left: 10px;
+  width: 92%;
+  height: 200px;
+  margin-left: 3%;
+  margin-top: 5%;
+  border-top: 5px solid green;
+  background-color: #98FB98;
 }
 </style>
